@@ -19,6 +19,7 @@ def gen_frames():  # generate frame by frame from camera
             break
         else:
             ret, buffer = cv2.imencode('.jpg', frame)
+<<<<<<< HEAD
             from keras.models import load_model
             model = load_model('adam_50_15.h5')
             test_image = cv2.imread(buffer)
@@ -34,6 +35,23 @@ def gen_frames():  # generate frame by frame from camera
             # cv2.putText(buffer,class_label,position,cv2.FONT_HERSHEY_SIMPLEX,1,(209, 80, 0, 255),3)
             frame = buffer.tobytes()
             
+=======
+            
+            # from keras.models import load_model
+            # model = load_model('adam_50_15.h5')
+            # test_image = cv2.imread(buffer)
+            # test_image = cv2.resize(buffer, (200, 200))
+            # test_image = np.expand_dims(buffer, axis=0)
+
+            # # Make predictions
+            # predictions = model.predict(buffer)
+
+            # # Get the predicted class label
+            # class_label = np.argmax(predictions, axis=1)
+            # position = (10,50)
+            # cv2.putText(buffer,class_label,position,cv2.FONT_HERSHEY_SIMPLEX,1,(209, 80, 0, 255),3)
+            frame = buffer.tobytes()
+>>>>>>> ec267134d37180a01da452a16b6140092ea5703d
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 
