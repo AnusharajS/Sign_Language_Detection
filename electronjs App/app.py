@@ -1,6 +1,6 @@
 from flask import Flask, render_template, Response
 import cv2
-
+import numpy
 
 app = Flask(__name__)
 
@@ -20,6 +20,18 @@ def gen_frames():  # generate frame by frame from camera
         else:
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
+            from keras.models import load_model
+            model = load_model('adam_50_15.h5')
+            test_image = cv2.imread('O_11.jpg')
+            test_image = cv2.resize(test_image, (200, 200))
+            test_image = np.expand_dims(test_image, axis=0)
+
+            # Make predictions
+            predictions = model.predict(test_image)
+
+            # Get the predicted class label
+            class_label = np.argmax(predictions, axis=1)
+
             
    
             yield (b'--frame\r\n'
