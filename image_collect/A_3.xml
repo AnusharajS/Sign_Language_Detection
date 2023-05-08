@@ -1,0 +1,26 @@
+<annotation>
+	<folder>image_collect</folder>
+	<filename>A_3.jpg</filename>
+	<path>C:\Users\haris\Coding\Python\NLP_trial\image_collect\A_3.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3456</width>
+		<height>4608</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>A</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>425</xmin>
+			<ymin>1484</ymin>
+			<xmax>2239</xmax>
+			<ymax>3394</ymax>
+		</bndbox>
+	</object>
+</annotation>
